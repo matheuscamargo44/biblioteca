@@ -5,10 +5,8 @@ public class Livro {
     private String nome;
     private static int proximoId = 1;
     public Livro(String nome){
-        this.id = proximoId;
-        proximoId++;
+        this.id = proximoId++;
         this.nome = nome;
-
     }
 
     public int getId(){
