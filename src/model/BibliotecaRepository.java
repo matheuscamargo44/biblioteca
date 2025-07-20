@@ -23,4 +23,15 @@ public class BibliotecaRepository implements IBibliotecaRepository{
 
         livros.removeIf(livro -> livro.getId() == id);
     }
+
+    @Override
+    public Livro buscarId(int id) {
+        for (Livro livro : livros) {
+            if (livro.getId() == id) {
+                return livro;
+            }
+        }
+        return null;
+    }
+
 }

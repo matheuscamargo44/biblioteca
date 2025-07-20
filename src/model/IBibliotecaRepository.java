@@ -7,4 +7,5 @@ public interface IBibliotecaRepository {
     void adicionarLivro(Livro livro);
     List<Livro> listarLivros();
     void removerLivro(int id);
+    Livro buscarId(int id);
 }

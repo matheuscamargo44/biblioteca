@@ -2,6 +2,7 @@ package controller;
 import model.IBibliotecaRepository;
 import model.BibliotecaRepository;
 import java.util.List;
+import model.Livro;
 
 public class BibliotecaController {
     private IBibliotecaRepository repository;
@@ -20,4 +21,8 @@ public class BibliotecaController {
     public void removerLivro(int id) {
         repository.removerLivro(id);
     }
+    public Livro buscarId(int id){
+        return repository.buscarId(id);
+    }
+
 }
