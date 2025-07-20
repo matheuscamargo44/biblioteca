@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.Livro;
 
 public class BibliotecaRepository implements IBibliotecaRepository{
     private List<Livro> livros = new ArrayList<>();
@@ -13,11 +14,13 @@ public class BibliotecaRepository implements IBibliotecaRepository{
 
     @Override
     public List<Livro> listarLivros() {
+
         return new ArrayList<>(livros);
     }
 
     @Override
     public void removerLivro(int id) {
 
+        livros.removeIf(livro -> livro.getId() == id);
     }
 }

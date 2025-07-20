@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/controller/BibliotecaController.java;C:/Users/camargo/IdeaProjects/biblioteca/src/model/BibliotecaRepository.java;C:/Users/camargo/IdeaProjects/biblioteca/src/model/IBibliotecaRepository.java;C:/Users/camargo/IdeaProjects/biblioteca/src/model/Livro.java;C:/Users/camargo/IdeaProjects/biblioteca/src/view/Menu.java;C:/Users/camargo/IdeaProjects/biblioteca/src/Main.java" />
+  </component>
+</project>
