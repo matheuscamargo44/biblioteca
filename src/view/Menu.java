@@ -18,9 +18,12 @@ public class Menu {
         while (true) {
             System.out.println("\n=== MENU PRINCIPAL ===");
             System.out.println("[1] - Adicionar Livro");
-            System.out.println("[2] - Listar Livros");
-            System.out.println("[3] - Remover Livro");
+            System.out.println("[2] - Remover Livro");
+            System.out.println("[3] - Listar Livros");
+
             System.out.println("[4] - Buscar por ID");
+            System.out.println("[5] - Emprestar Livro");
+            System.out.println("[6] - Devolver Livro");
             System.out.println("[0] - Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -32,13 +35,20 @@ public class Menu {
                     this.adicionarLivro();
                     break;
                 case 2:
-                    this.listarLivros();
+                    this.removerLivro();
                     break;
                 case 3:
-                    this.removerLivro();
+                    this.listarLivros();
                     break;
                 case 4:
                     this.buscarId();
+                    break;
+                case 5:
+                    this.emprestarLivro();
+                    break;
+                case 6:
+                    this.devolverLivro();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     return;
@@ -83,6 +93,42 @@ public class Menu {
             System.out.println("----------------------");
         } else {
             System.out.println("\nLivro com ID " + id + " não encontrado!");
+        }
+    }
+    private void emprestarLivro(){
+        System.out.println("Livros Disponíveis: ");
+        for(Livro livro : bibliotecaController.listarLivros()){
+            if(!livro.isEmprestado()){
+                System.out.println("ID:" + livro.getId() + " | Título: " + livro.getNome());
+            }
+        }
+        System.out.println("Digite o ID do livro que você quer emprestar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        boolean emprestimoFeito = bibliotecaController.emprestarLivro(id);
+        if(emprestimoFeito){
+            System.out.println("Livro emprestado com sucesso");
+        }
+        else{
+            System.out.println("Não foi possível emprestar o livro. Verifique se o ID está correto e se o livro está disponível");
+        }
+    }
+    private void devolverLivro(){
+        System.out.println("Livros que voce tem que devolver");
+        for(Livro livro : bibliotecaController.listarLivros()){
+            if(livro.isEmprestado()){
+                System.out.println("ID:" + livro.getId() + " | Título: " + livro.getNome());
+            }
+        }
+        System.out.println("Digite o ID do livro que você quer devolver: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        boolean devolucaoFeita = bibliotecaController.devolverLivro(id);
+        if(devolucaoFeita){
+            System.out.println("Livro devolvido com sucesso");
+        }
+        else{
+            System.out.println("Não foi possível devolver o livro. Verifique se o ID está correto e se você emprestou o livro");
         }
     }
 }

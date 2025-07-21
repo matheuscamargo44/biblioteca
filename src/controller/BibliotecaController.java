@@ -24,5 +24,10 @@ public class BibliotecaController {
     public Livro buscarId(int id){
         return repository.buscarId(id);
     }
-
+    public boolean emprestarLivro(int id){
+        return repository.emprestarLivro(id);
+    }
+    public boolean devolverLivro(int id){
+        return repository.devolverLivro(id);
+    }
 }

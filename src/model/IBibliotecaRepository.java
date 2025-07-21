@@ -8,4 +8,6 @@ public interface IBibliotecaRepository {
     List<Livro> listarLivros();
     void removerLivro(int id);
     Livro buscarId(int id);
+    boolean emprestarLivro(int id);
+    boolean devolverLivro(int id);
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Livro;
 
-public class BibliotecaRepository implements IBibliotecaRepository{
+public class BibliotecaRepository implements IBibliotecaRepository {
     private List<Livro> livros = new ArrayList<>();
 
     @Override
@@ -14,7 +14,6 @@ public class BibliotecaRepository implements IBibliotecaRepository{
 
     @Override
     public List<Livro> listarLivros() {
-
         return new ArrayList<>(livros);
     }
 
@@ -32,6 +31,27 @@ public class BibliotecaRepository implements IBibliotecaRepository{
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean emprestarLivro(int id) {
+        for (Livro livro : livros) {
+            if (livro.getId() == id && !livro.isEmprestado()) {
+                livro.setEmprestado(true);
+                return true;
+            }
+        }
+        return false;
+    }
+    @Override
+    public boolean devolverLivro(int id){
+        for(Livro livro : livros){
+            if(livro.getId() == id && livro.isEmprestado()){
+                livro.setEmprestado(false);
+                return true;
+            }
+        }
+        return false;
     }
 
 }
